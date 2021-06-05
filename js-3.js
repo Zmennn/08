@@ -9,6 +9,7 @@ let compScore = 0;
 let playItem = ''
 let compItem = ''
 
+
 do {
     initialData();
 
@@ -25,6 +26,7 @@ function end1() {
     alert('end');
 };
 
+
 alert('приходите исчо, для продолжения можно обновить страницу,счет будет обнулен');
 
 function initialData() {
@@ -39,11 +41,12 @@ function initialData() {
 }
 
 function dataProcessing() {
-    console.log(play, comp, 'process')
+
     let mesage = '';
     if (play === 1 && comp === 1) {
         mesage = 'Hичья';
     }
+
     else if (play === 1 && comp === 2) {
         mesage = 'Вы победили';
         playScore += 1;
@@ -52,7 +55,7 @@ function dataProcessing() {
         mesage = 'Вы проиграли';
         compScore += 1;
     }
-    if (play === 2 && comp === 1) {
+    else if (play === 2 && comp === 1) {
         mesage = 'Вы проиграли';
         compScore += 1;
     }
@@ -64,7 +67,7 @@ function dataProcessing() {
         mesage = 'Вы победили';
         playScore += 1;
     }
-    if (play === 3 && comp === 1) {
+    else if (play === 3 && comp === 1) {
         mesage = 'Вы победили';
         playScore += 1;
     }
@@ -75,6 +78,7 @@ function dataProcessing() {
     else if (play === 3 && comp === 3) {
         mesage = 'Hичья';
     };
+
     switch (play) {
         case (1):
             playItem = 'камень'
