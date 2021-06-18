@@ -6,10 +6,9 @@ let play = 0;
 let a = 0;
 let playScore = 0;
 let compScore = 0;
-let playItem = ''
-let compItem = ''
-
-
+let id = 0;
+let res = {};
+//Основное тело -бесконечный цикл прерываемый по команде от игрока
 do {
     initialData();
 
@@ -17,18 +16,21 @@ do {
         break;
     };
 
-    dataProcessing();
+    const resultText = (dataProcessing());
 
+    res = resultsBase(resultText);
+    console.table(res);
+    outputResults.call(resultText);
 }
 while (a !== null);
-
-function end1() {
-    alert('end');
-};
+console.table(res);
+end(res);
 
 
 alert('приходите исчо, для продолжения можно обновить страницу,счет будет обнулен');
 
+
+//запрос выбора с валидацией для ручного ввода, и генерация выбора компа
 function initialData() {
     do {
         play = prompt('сделайте выбор 1-камень 2-ножницы 3-бумага, или для завершения нажми "отмена"');
@@ -40,43 +42,48 @@ function initialData() {
     return (play, a, comp)
 }
 
-function dataProcessing() {
 
-    let mesage = '';
+//Обработка данных и выдача массива тектстовых данных
+function dataProcessing() {
+    let playItem = '';
+    let compItem = '';
+    let message = '';
+
+
     if (play === 1 && comp === 1) {
-        mesage = 'Hичья';
+        message = 'Hичья';
     }
 
     else if (play === 1 && comp === 2) {
-        mesage = 'Вы победили';
+        message = 'Вы победили';
         playScore += 1;
     }
     else if (play === 1 && comp === 3) {
-        mesage = 'Вы проиграли';
+        message = 'Вы проиграли';
         compScore += 1;
     }
     else if (play === 2 && comp === 1) {
-        mesage = 'Вы проиграли';
+        message = 'Вы проиграли';
         compScore += 1;
     }
     else if (play === 2 && comp === 2) {
-        mesage = 'Hичья';
+        message = 'Hичья';
 
     }
     else if (play === 2 && comp === 3) {
-        mesage = 'Вы победили';
+        message = 'Вы победили';
         playScore += 1;
     }
     else if (play === 3 && comp === 1) {
-        mesage = 'Вы победили';
+        message = 'Вы победили';
         playScore += 1;
     }
     else if (play === 3 && comp === 2) {
-        mesage = 'Вы проиграли';
+        message = 'Вы проиграли';
         compScore += 1;
     }
     else if (play === 3 && comp === 3) {
-        mesage = 'Hичья';
+        message = 'Hичья';
     };
 
     switch (play) {
@@ -107,12 +114,39 @@ function dataProcessing() {
         default:
             break;
     };
-    alert(`${mesage}
 
-    вы выбрали-${playItem}   компьютер выбрал-${compItem}
-    
-    общий счет-игрок${playScore} комп${compScore}`);
+    const result = {
+        playItem,
+        compItem,
+        message,
+        playScore,
+        compScore,
+    };
+
+    return result;
 };
+//допилить функ, не формит массив
+function resultsBase(innerArray) {
+    const dataBase = [];
+    id += 1;
+    dataBase.push({ ...{ id }, ...innerArray });
+    return dataBase;
+
+};
+
+function outputResults() {
+    alert(`${this.message}
+
+    вы выбрали-${this.playItem}   компьютер выбрал-${this.compItem}
+
+    общий счет-игрок${this.playScore} комп${this.compScore}`);
+};
+
+function end() {
+    alert(`номер игры${this.id}`);
+};
+
+
 
 
 
