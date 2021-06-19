@@ -1,6 +1,6 @@
 "use strict"
 // камень-ножницы-бумага
-let go = 0;
+// let go = 0;
 let comp = 0;
 let play = 0;
 let a = 0;
@@ -8,6 +8,9 @@ let playScore = 0;
 let compScore = 0;
 let id = 0;
 let res = {};
+let base = [];
+const dataBase = [];
+
 //Основное тело -бесконечный цикл прерываемый по команде от игрока
 do {
     initialData();
@@ -18,13 +21,18 @@ do {
 
     const resultText = (dataProcessing());
 
-    res = resultsBase(resultText);
-    console.table(res);
-    outputResults.call(resultText);
+    resultPrint.call(resultText);
+
+    resultsBase(resultText);
+
+
+
+
 }
 while (a !== null);
-console.table(res);
-end(res);
+
+console.table(dataBase);
+
 
 
 alert('приходите исчо, для продолжения можно обновить страницу,счет будет обнулен');
@@ -43,7 +51,7 @@ function initialData() {
 }
 
 
-//Обработка данных и выдача массива тектстовых данных
+//Обработка данных и выдача массива тектстовых данных результатов
 function dataProcessing() {
     let playItem = '';
     let compItem = '';
@@ -125,16 +133,19 @@ function dataProcessing() {
 
     return result;
 };
-//допилить функ, не формит массив
+
+
+// формит массив
 function resultsBase(innerArray) {
-    const dataBase = [];
+
     id += 1;
     dataBase.push({ ...{ id }, ...innerArray });
     return dataBase;
 
 };
 
-function outputResults() {
+//выводит результат каждого тура
+function resultPrint() {
     alert(`${this.message}
 
     вы выбрали-${this.playItem}   компьютер выбрал-${this.compItem}
@@ -142,9 +153,10 @@ function outputResults() {
     общий счет-игрок${this.playScore} комп${this.compScore}`);
 };
 
-function end() {
-    alert(`номер игры${this.id}`);
-};
+
+//будет выводить таблицу результатов после игры
+function printAllResult() {
+}
 
 
 
