@@ -11,6 +11,14 @@ let res = {};
 let base = [];
 const dataBase = [];
 
+const refs = {
+    mainContainerEl: document.querySelector('.main-container'),
+    rockEl: document.querySelector('.rock-container'),
+    paperEl: document.querySelector('.paper-container'),
+    scissorsEl: document.querySelector('.scissors-container'),
+}
+
+
 //Основное тело -бесконечный цикл прерываемый по команде от игрока
 do {
     initialData();
@@ -39,16 +47,22 @@ alert('приходите исчо, для продолжения можно о�
 
 
 //запрос выбора с валидацией для ручного ввода, и генерация выбора компа
-function initialData() {
-    do {
-        play = prompt('сделайте выбор 1-камень 2-ножницы 3-бумага, или для завершения нажми "отмена"');
-        a = play;
-        play = Number(play);
-    }
-    while (!(play === 1 || play === 2 || play === 3 || a === null));
-    comp = Math.ceil(Math.random() * 3);
-    return (play, a, comp)
-}
+// function initialData() {
+//     do {
+//         play = prompt('сделайте выбор 1-камень 2-ножницы 3-бумага, или для завершения нажми "отмена"');
+//         a = play;
+//         play = Number(play);
+//     }
+//     while (!(play === 1 || play === 2 || play === 3 || a === null));
+//     comp = Math.ceil(Math.random() * 3);
+//     return (play, a, comp)
+// }
+refs.rockEl.classList.remove('is-hidden')
+refs.paperEl.classList.remove('is-hidden')
+refs.scissorsEl.classList.remove('is-hidden')
+refs.rockEl.addEventListener('click')
+refs.paperEl.addEventListener('click')
+refs.scissorsEl.addEventListener('click')
 
 
 //Обработка данных и выдача массива тектстовых данных результатов

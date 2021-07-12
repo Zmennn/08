@@ -1,14 +1,58 @@
-.title-cont {
+* {
   box-sizing: border-box;
+}
+
+.main-container {
   position: fixed;
-  bottom: 10vh;
+  width: 90vw;
+  height: 90vh;
+  border: solid black 5px;
+  border-radius: 2vw;
+  left: 5vw;
+  top: 5vh;
+}
+
+.title-cont {
+  position: fixed;
+  bottom: 8vh;
   width: 60vw;
   border: solid violet 2px;
   border-radius: 1vw;
-  margin-left: 20vw;
-  margin-right: 20vw;
+  margin-left: 15vw;
 }
 .title-cont__title {
   text-align: center;
   font-size: calc(16px + 0.04 * (100vw - 400px));
+}
+
+.is-hidden {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.rock-container {
+  position: fixed;
+  width: 18vw;
+  height: 18vw;
+  left: 41vw;
+  top: 15vh;
+  background-color: chartreuse;
+}
+
+.paper-container {
+  position: fixed;
+  width: 18vw;
+  height: 18vw;
+  left: 41vw;
+  top: 35vh;
+  background-color: chartreuse;
+}
+
+.scissors-container {
+  position: fixed;
+  width: 18vw;
+  height: 18vw;
+  left: 41vw;
+  top: 55vh;
+  background-color: chartreuse;
 }
