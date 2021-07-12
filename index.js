@@ -18,57 +18,71 @@ const refs = {
     scissorsEl: document.querySelector('.scissors-container'),
 }
 
+initialData()
 
 //Основное тело -бесконечный цикл прерываемый по команде от игрока
-do {
-    initialData();
+// do {
+//     initialData();
 
-    if (a === null) {
-        break;
-    };
+//     if (a === null) {
+//         break;
+//     };
 
-    const resultText = (dataProcessing());
+//     const resultText = (dataProcessing());
 
-    resultPrint.call(resultText);
+//     resultPrint.call(resultText);
 
-    resultsBase(resultText);
-
-
-
-
-}
-while (a !== null);
-
-console.table(dataBase);
+//     resultsBase(resultText);
 
 
 
-alert('приходите исчо, для продолжения можно обновить страницу,счет будет обнулен');
 
-
-//запрос выбора с валидацией для ручного ввода, и генерация выбора компа
-// function initialData() {
-//     do {
-//         play = prompt('сделайте выбор 1-камень 2-ножницы 3-бумага, или для завершения нажми "отмена"');
-//         a = play;
-//         play = Number(play);
-//     }
-//     while (!(play === 1 || play === 2 || play === 3 || a === null));
-//     comp = Math.ceil(Math.random() * 3);
-//     return (play, a, comp)
 // }
-refs.rockEl.classList.remove('is-hidden')
-refs.paperEl.classList.remove('is-hidden')
-refs.scissorsEl.classList.remove('is-hidden')
-refs.rockEl.addEventListener('click')
-refs.paperEl.addEventListener('click')
-refs.scissorsEl.addEventListener('click')
+// while (a !== null);
+
+// console.table(dataBase);
+
+
+
+// console.log('приходите исчо, для продолжения можно обновить страницу,счет будет обнулен');
+
+
+//Выбор игрока, включение иконок
+function initialData() {
+
+    refs.rockEl.classList.remove('is-hidden');
+    refs.paperEl.classList.remove('is-hidden');
+    refs.scissorsEl.classList.remove('is-hidden');
+    refs.rockEl.addEventListener('click', event => compChoice('rock'));
+    refs.paperEl.addEventListener('click', event => compChoice('paper'));
+    refs.scissorsEl.addEventListener('click', event => compChoice('scissors'));
+};
+
+
+
+function compChoice(playerChoice) {
+    const comp = Math.ceil(Math.random() * 3);
+    let compItem = '';
+    switch (comp) {
+        case (1):
+            compItem = 'rock'
+            break;
+        case (2):
+            compItem = 'paper'
+            break;
+        case (3):
+            compItem = 'scissors'
+            break;
+    };
+    dataProcessing(playerChoice, compItem)
+}
 
 
 //Обработка данных и выдача массива тектстовых данных результатов
-function dataProcessing() {
+function dataProcessing(playerChoice, compItem) {
+    console.log(playerChoice, compItem);
     let playItem = '';
-    let compItem = '';
+    // let compItem = '';
     let message = '';
 
 
@@ -160,7 +174,7 @@ function resultsBase(innerArray) {
 
 //выводит результат каждого тура
 function resultPrint() {
-    alert(`${this.message}
+    console.log(`${this.message}
 
     вы выбрали-${this.playItem}   компьютер выбрал-${this.compItem}
 
