@@ -16,16 +16,20 @@ const refs = {
     resultContainerEl: document.querySelector('.result-container'),
     playScoreEl: document.querySelector('.player-score'),
     compScoreEl: document.querySelector('.comp-score'),
+    titleEl: document.querySelector('.title-cont')
 }
+
+
 
 initialData()
 
 
 
 
+
 //Выбор игрока, включение иконок
 function initialData() {
-
+    refs.resultContainerEl.classList.add('is-hidden');
     refs.rockEl.classList.remove('is-hidden');
     refs.paperEl.classList.remove('is-hidden');
     refs.scissorsEl.classList.remove('is-hidden');
@@ -119,6 +123,8 @@ function showResult(result) {
 
     refs.playScoreEl.textContent = result.playScore;
     refs.compScoreEl.textContent = result.compScore;
+    //тут нужно организовать прерывание до нажатия кнопки и переход к началу
+    // refs.titleEl.addEventListener('click', initialData())
 }
 
 // формит массив

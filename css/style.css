@@ -36,7 +36,8 @@
   height: 18vw;
   left: 41vw;
   top: 15vh;
-  background-color: chartreuse;
+  background-image: url(../images/rock.png);
+  background-size: cover;
 }
 
 .paper-container {
@@ -45,7 +46,8 @@
   height: 18vw;
   left: 41vw;
   top: 35vh;
-  background-color: chartreuse;
+  background-image: url(../images/paper.png);
+  background-size: cover;
 }
 
 .scissors-container {
@@ -54,7 +56,8 @@
   height: 18vw;
   left: 41vw;
   top: 55vh;
-  background-color: chartreuse;
+  background-image: url(../images/scissors.png);
+  background-size: cover;
 }
 
 .result-container {
