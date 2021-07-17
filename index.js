@@ -17,11 +17,11 @@ const refs = {
     playScoreEl: document.querySelector('.player-score'),
     compScoreEl: document.querySelector('.comp-score'),
     titleEl: document.querySelector('.title-cont')
-}
+};
 
 
 
-initialData()
+initialData();
 
 
 
@@ -33,11 +33,25 @@ function initialData() {
     refs.rockEl.classList.remove('is-hidden');
     refs.paperEl.classList.remove('is-hidden');
     refs.scissorsEl.classList.remove('is-hidden');
-    refs.rockEl.addEventListener('click', event => compChoiceAdd('rock'));
-    refs.paperEl.addEventListener('click', event => compChoiceAdd('paper'));
-    refs.scissorsEl.addEventListener('click', event => compChoiceAdd('scissors'));
+    refs.mainContainerEl.addEventListener('click', playerChoiceAdd)
 };
 
+
+function playerChoiceAdd(event) {
+    refs.mainContainerEl.removeEventListener('click', playerChoiceAdd)
+
+    switch (event.target) {
+        case refs.rockEl:
+            compChoiceAdd('rock');
+            break;
+        case refs.paperEl:
+            compChoiceAdd('paper');
+            break;
+        case refs.scissorsEl:
+            compChoiceAdd('scissors');
+            break;
+    }
+}
 
 //Создаем выбор компа и передаем в обработку вместе с выбором игрока
 function compChoiceAdd(playerChoice) {
@@ -123,36 +137,23 @@ function showResult(result) {
 
     refs.playScoreEl.textContent = result.playScore;
     refs.compScoreEl.textContent = result.compScore;
-    //тут нужно организовать прерывание до нажатия кнопки и переход к началу
-    // refs.titleEl.addEventListener('click', initialData())
-}
 
-// формит массив
-function resultsBase(innerArray) {
 
-    id += 1;
-    dataBase.push({ ...{ id }, ...innerArray });
-    return dataBase;
 
+    refs.mainContainerEl.addEventListener('click', initialData);
 };
 
-// //выводит результат каждого тура
-// function resultPrint() {
-//     console.log(`${this.message}
+// формит массив
 
-//     вы выбрали-${this.playItem}   компьютер выбрал-${this.compItem}
+function resultsBase(innerObj) {
 
-//     общий счет-игрок${this.playScore} комп${this.compScore}`);
-// };
+    id += 1;
+    dataBase.push({ ...{ id }, ...innerObj });
+    return dataBase;
 
-
-//будет выводить таблицу результатов после игры
-function printAllResult() {
 }
 
 
-
-
-
-
-
+    //будет выводить таблицу результатов после игры
+    // function printAllResult() {
+    // }
