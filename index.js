@@ -74,7 +74,6 @@ function compChoiceAdd(playerChoice) {
 
 //Обработка данных и выдача массива  данных результатов
 function dataProcessing(playerChoice, compChoice) {
-    console.log(playerChoice, compChoice);
 
     let message = '';
 
@@ -92,7 +91,6 @@ function dataProcessing(playerChoice, compChoice) {
 
     message = innerData[playerChoice + compChoice];
 
-    console.log(message);
 
     switch (message) {
         case 'win':
