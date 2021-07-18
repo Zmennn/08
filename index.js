@@ -33,12 +33,12 @@ function initialData() {
     refs.rockEl.classList.remove('is-hidden');
     refs.paperEl.classList.remove('is-hidden');
     refs.scissorsEl.classList.remove('is-hidden');
-    refs.mainContainerEl.addEventListener('click', playerChoiceAdd)
+    refs.mainContainerEl.addEventListener('click', playerChoiceAdd, { once: true })
 };
 
 
 function playerChoiceAdd(event) {
-    refs.mainContainerEl.removeEventListener('click', playerChoiceAdd)
+
 
     switch (event.target) {
         case refs.rockEl:
