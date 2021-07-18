@@ -33,12 +33,13 @@ function initialData() {
     refs.rockEl.classList.remove('is-hidden');
     refs.paperEl.classList.remove('is-hidden');
     refs.scissorsEl.classList.remove('is-hidden');
-    refs.mainContainerEl.addEventListener('click', playerChoiceAdd, { once: true })
+    refs.mainContainerEl.addEventListener('click', playerChoiceAdd)
 };
 
 
 function playerChoiceAdd(event) {
 
+    refs.mainContainerEl.removeEventListener('click', playerChoiceAdd);
 
     switch (event.target) {
         case refs.rockEl:
@@ -55,6 +56,9 @@ function playerChoiceAdd(event) {
 
 //Создаем выбор компа и передаем в обработку вместе с выбором игрока
 function compChoiceAdd(playerChoice) {
+
+
+
     const comp = Math.ceil(Math.random() * 3);
     let compChoice = '';
     switch (comp) {
@@ -138,7 +142,7 @@ function showResult(result) {
 
 
 
-    refs.mainContainerEl.addEventListener('click', initialData);
+    refs.mainContainerEl.addEventListener('click', initialData, { once: true });
 };
 
 // формит массив

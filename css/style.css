@@ -32,32 +32,35 @@
 
 .rock-container {
   position: fixed;
-  width: 18vw;
-  height: 18vw;
-  left: 41vw;
+  width: 26vw;
+  height: 26vw;
+  left: 37vw;
   top: 15vh;
   background-image: url(../images/rock.png);
   background-size: cover;
+  border-radius: 50%;
 }
 
 .paper-container {
   position: fixed;
-  width: 18vw;
-  height: 18vw;
-  left: 41vw;
+  width: 26vw;
+  height: 26vw;
+  left: 37vw;
   top: 35vh;
   background-image: url(../images/paper.png);
   background-size: cover;
+  border-radius: 50%;
 }
 
 .scissors-container {
   position: fixed;
-  width: 18vw;
-  height: 18vw;
-  left: 41vw;
+  width: 26vw;
+  height: 26vw;
+  left: 37vw;
   top: 55vh;
   background-image: url(../images/scissors.png);
   background-size: cover;
+  border-radius: 50%;
 }
 
 .result-container {
