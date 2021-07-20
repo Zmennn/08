@@ -2,8 +2,13 @@
   box-sizing: border-box;
 }
 
-.main-container {
+body {
   position: fixed;
+  border: chartreuse 2px dashed;
+}
+
+.main-container {
+  /* position: absolute; */
   width: 90vw;
   height: 90vh;
   border: solid black 5px;
@@ -13,7 +18,7 @@
 }
 
 .title-cont {
-  position: fixed;
+  position: absolute;
   bottom: 8vh;
   width: 60vw;
   border: solid violet 2px;
@@ -31,7 +36,7 @@
 }
 
 .rock-container {
-  position: fixed;
+  position: absolute;
   width: 26vw;
   height: 26vw;
   left: 37vw;
@@ -42,7 +47,7 @@
 }
 
 .paper-container {
-  position: fixed;
+  position: absolute;
   width: 26vw;
   height: 26vw;
   left: 37vw;
@@ -53,7 +58,7 @@
 }
 
 .scissors-container {
-  position: fixed;
+  position: absolute;
   width: 26vw;
   height: 26vw;
   left: 37vw;
@@ -64,7 +69,7 @@
 }
 
 .result-container {
-  position: fixed;
+  position: absolute;
   width: 80vw;
   height: 50vh;
   left: 10vw;
@@ -73,7 +78,7 @@
 
 .player-score {
   display: block;
-  position: fixed;
+  position: absolute;
   width: 10vw;
   height: 10vw;
   top: 75vh;
@@ -86,7 +91,7 @@
 
 .comp-score {
   display: block;
-  position: fixed;
+  position: absolute;
   width: 10vw;
   height: 10vw;
   top: 75vh;
