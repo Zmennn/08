@@ -9,7 +9,6 @@ body {
 .main-container {
   position: relative;
   width: 100vw;
-  height: 91vh;
   border: solid black 5px;
   border-radius: 2vw;
   top: 1vh;
