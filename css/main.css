@@ -23,6 +23,7 @@ body {
   border-radius: 1vw;
   margin-left: 20vw;
 }
+
 .title-cont__title {
   text-align: center;
   font-size: calc(16px + 0.04 * (100vw - 400px));
@@ -40,7 +41,7 @@ body {
   transform: translateX(-50%);
   left: 50%;
   top: 5%;
-  background-image: url(../images/rock.png);
+  background: url(../images/rock.png) center center no-repeat;
   background-size: cover;
   border-radius: 50%;
 }
@@ -52,7 +53,7 @@ body {
   transform: translateX(-50%);
   left: 50%;
   top: 25%;
-  background-image: url(../images/paper.png);
+  background: url(../images/paper.png) center center no-repeat;
   background-size: cover;
   border-radius: 50%;
 }
@@ -64,7 +65,7 @@ body {
   transform: translateX(-50%);
   left: 50%;
   top: 45%;
-  background-image: url(../images/scissors.png);
+  background: url(../images/scissors.png) center center no-repeat;
   background-size: cover;
   border-radius: 50%;
 }
@@ -86,7 +87,7 @@ body {
   height: 10%;
   top: 75%;
   left: 15%;
-  background-color: rgb(0, 234, 255);
+  background-color: #00eaff;
   font-size: 10vw;
   line-height: 1;
   text-align: center;
@@ -101,8 +102,9 @@ body {
   height: 10%;
   top: 75%;
   right: 15%;
-  background-color: rgb(0, 234, 255);
+  background-color: #00eaff;
   font-size: 10vw;
   line-height: 1;
   text-align: center;
 }
+/*# sourceMappingURL=main.css.map */

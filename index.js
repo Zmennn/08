@@ -23,7 +23,7 @@ const refs = {
 
 initialData();
 
-
+console.log(Screen.availHeight);
 
 
 
