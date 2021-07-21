@@ -19,11 +19,10 @@ const refs = {
     titleEl: document.querySelector('.title-cont')
 };
 
-refs.mainContainerEl.style.height = `${window.screen.availHeight}px`
 
 initialData();
 
-console.log(window.screen.availHeight);
+
 
 
 
