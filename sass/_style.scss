@@ -45,6 +45,13 @@ body {
   border-radius: 50%;
 }
 
+.wide-screen.rock-container {
+  width: 20%;
+  height: 25%;
+  left: 20%;
+  top: 15%;
+}
+
 .paper-container {
   position: absolute;
   width: 30%;
@@ -55,6 +62,13 @@ body {
   background: url(../images/paper.png) center center no-repeat;
   background-size: cover;
   border-radius: 50%;
+}
+
+.wide-screen.paper-container {
+  width: 20%;
+  height: 25%;
+  left: 50%;
+  top: 15%;
 }
 
 .scissors-container {
@@ -69,12 +83,20 @@ body {
   border-radius: 50%;
 }
 
+.wide-screen.scissors-container {
+  width: 20%;
+  height: 25%;
+  left: 80%;
+  top: 15%;
+}
+
 .result-container {
   position: absolute;
   width: 100%;
   height: 55%;
   left: 0;
   top: 0;
+  
 }
 
 .player-score {
@@ -82,8 +104,6 @@ body {
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 20%;
-  height: 10%;
   top: 75%;
   left: 15%;
   background-color: rgb(0, 234, 255);
@@ -92,13 +112,18 @@ body {
   text-align: center;
 }
 
+.wide-screen.player-score,
+.wide-screen.comp-score {
+  top: 60%;
+  width: 10%;
+  font-size: 7vw;
+}
+
 .comp-score {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  width: 20%;
-  height: 10%;
   top: 75%;
   right: 15%;
   background-color: rgb(0, 234, 255);

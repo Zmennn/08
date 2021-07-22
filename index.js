@@ -22,8 +22,23 @@ const refs = {
 
 initialData();
 
+//Определение широкого экрана, буль
+const wideScreen = (window.screen.availWidth / window.screen.availHeight > 0.7)
 
-refs.mainContainerEl.style.height = `${window.screen.availHeight * .97}px`
+if (wideScreen) {
+    refs.rockEl.classList.add('wide-screen');
+    refs.paperEl.classList.add('wide-screen');
+    refs.scissorsEl.classList.add('wide-screen');
+    refs.playScoreEl.classList.add('wide-screen');
+    refs.compScoreEl.classList.add('wide-screen');
+} else {
+    refs.rockEl.classList.remove('wide-screen');
+    refs.paperEl.classList.remove('wide-screen');
+    refs.scissorsEl.classList.remove('wide-screen');
+    refs.playScoreEl.classList.remove('wide-screen');
+    refs.compScoreEl.classList.remove('wide-screen');
+}
+
 
 
 //Выбор игрока, включение иконок
@@ -39,8 +54,6 @@ function initialData() {
 function playerChoiceAdd(event) {
 
 
-
-    refs.mainContainerEl.removeEventListener('click', playerChoiceAdd);
 
     switch (event.target) {
         case refs.rockEl:
@@ -58,7 +71,7 @@ function playerChoiceAdd(event) {
 //Создаем выбор компа и передаем в обработку вместе с выбором игрока
 function compChoiceAdd(playerChoice) {
 
-
+    refs.mainContainerEl.removeEventListener('click', playerChoiceAdd);
 
     const comp = Math.ceil(Math.random() * 3);
     let compChoice = '';
@@ -128,13 +141,16 @@ function showResult(result) {
 
     switch (result.message) {
         case 'win':
-            refs.resultContainerEl.style.backgroundImage = 'url(./images/win.jpg)';
+            refs.resultContainerEl.style.background = 'url(./images/win.jpg) center center no-repeat';
+            if (!wideScreen) { refs.resultContainerEl.style.backgroundSize = "cover" }
             break;
         case 'loss':
-            refs.resultContainerEl.style.backgroundImage = 'url(./images/loss.png)';
+            refs.resultContainerEl.style.background = 'url(./images/loss.png)  center center no-repeat';
+            if (!wideScreen) { refs.resultContainerEl.style.backgroundSize = "cover" }
             break;
         case 'draw':
-            refs.resultContainerEl.style.backgroundImage = 'url(./images/draw.png)';
+            refs.resultContainerEl.style.background = 'url(./images/draw.png)  center center no-repeat';
+            if (!wideScreen) { refs.resultContainerEl.style.backgroundSize = "cover" }
             break;
     };
 
