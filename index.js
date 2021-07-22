@@ -23,7 +23,7 @@ const refs = {
 initialData();
 
 
-
+refs.mainContainerEl.style.height = `${window.screen.availHeight * .97}px`
 
 
 //Выбор игрока, включение иконок
@@ -37,6 +37,8 @@ function initialData() {
 
 
 function playerChoiceAdd(event) {
+
+
 
     refs.mainContainerEl.removeEventListener('click', playerChoiceAdd);
 
