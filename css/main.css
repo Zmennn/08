@@ -53,23 +53,11 @@ body {
   top: 15%;
 }
 
-.paper-container {
-  position: absolute;
-  width: 30%;
-  height: 15%;
-  transform: translateX(-50%);
-  left: 50%;
-  top: 25%;
-  background: url(../images/paper.png) center center no-repeat;
-  background-size: cover;
-  border-radius: 50%;
-}
-
-.wide-screen.paper-container {
-  width: 20%;
+.widest-screen.wide-screen.rock-container,
+.widest-screen.wide-screen.scissors-container,
+.widest-screen.wide-screen.paper-container {
+  width: 15%;
   height: 25%;
-  left: 50%;
-  top: 15%;
 }
 
 .scissors-container {
@@ -78,13 +66,32 @@ body {
   height: 15%;
   transform: translateX(-50%);
   left: 50%;
-  top: 45%;
+  top: 25%;
   background: url(../images/scissors.png) center center no-repeat;
   background-size: cover;
   border-radius: 50%;
 }
 
 .wide-screen.scissors-container {
+  width: 20%;
+  height: 25%;
+  left: 50%;
+  top: 15%;
+}
+
+.paper-container {
+  position: absolute;
+  width: 30%;
+  height: 15%;
+  transform: translateX(-50%);
+  left: 50%;
+  top: 45%;
+  background: url(../images/paper.png) center center no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.wide-screen.paper-container {
   width: 20%;
   height: 25%;
   left: 80%;
@@ -107,7 +114,7 @@ body {
   top: 75%;
   left: 15%;
   background-color: #00eaff;
-  font-size: 10vw;
+  font-size: 13vw;
   line-height: 1;
   text-align: center;
 }

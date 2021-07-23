@@ -25,6 +25,8 @@ initialData();
 //Определение широкого экрана, буль
 const wideScreen = (window.screen.availWidth / window.screen.availHeight > 0.7)
 
+
+//Добавление и удаление классов на широкий экран
 if (wideScreen) {
     refs.rockEl.classList.add('wide-screen');
     refs.paperEl.classList.add('wide-screen');
@@ -38,6 +40,22 @@ if (wideScreen) {
     refs.playScoreEl.classList.remove('wide-screen');
     refs.compScoreEl.classList.remove('wide-screen');
 }
+
+//Добавление и удаление классов на самый широкий экран
+if (window.screen.availWidth / window.screen.availHeight > 1.4) {
+    refs.rockEl.classList.add('widest-screen');
+    refs.paperEl.classList.add('widest-screen');
+    refs.scissorsEl.classList.add('widest-screen');
+    refs.playScoreEl.classList.add('widest-screen');
+    refs.compScoreEl.classList.add('widest-screen');
+} else {
+    refs.rockEl.classList.remove('widest-screen');
+    refs.paperEl.classList.remove('widest-screen');
+    refs.scissorsEl.classList.remove('widest-screen');
+    refs.playScoreEl.classList.remove('widest-screen');
+    refs.compScoreEl.classList.remove('widest-screen');
+}
+
 
 
 
