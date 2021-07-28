@@ -24,51 +24,44 @@ const resizeObserver = new ResizeObserver(onResize)
 
 function onResize(entries) {
 
-
     const aspectRatio = entries[0].contentRect.width / entries[0].contentRect.height
-    // if (entries[0].contentRect.width / entries[0].contentRect.height)
-    const wideScreen = aspectRatio < 0.7
-    if (wideScreen) { screenSize = "cover" }
-    else { screenSize = "auto" }
+
+    if (aspectRatio < 0.7) { screenSize = "cover" }
+    else { screenSize = "auto" };
+
+    //Добавление и удаление классов на широкий экран
+    if (aspectRatio > 0.7) {
+        refs.rockEl.classList.add('wide-screen');
+        refs.paperEl.classList.add('wide-screen');
+        refs.scissorsEl.classList.add('wide-screen');
+        refs.playScoreEl.classList.add('wide-screen');
+        refs.compScoreEl.classList.add('wide-screen');
+    } else {
+        refs.rockEl.classList.remove('wide-screen');
+        refs.paperEl.classList.remove('wide-screen');
+        refs.scissorsEl.classList.remove('wide-screen');
+        refs.playScoreEl.classList.remove('wide-screen');
+        refs.compScoreEl.classList.remove('wide-screen');
+    };
+
+    // Добавление и удаление классов на самый широкий экран
+    if (aspectRatio > 1.4) {
+        refs.rockEl.classList.add('widest-screen');
+        refs.paperEl.classList.add('widest-screen');
+        refs.scissorsEl.classList.add('widest-screen');
+        refs.playScoreEl.classList.add('widest-screen');
+        refs.compScoreEl.classList.add('widest-screen');
+    } else {
+        refs.rockEl.classList.remove('widest-screen');
+        refs.paperEl.classList.remove('widest-screen');
+        refs.scissorsEl.classList.remove('widest-screen');
+        refs.playScoreEl.classList.remove('widest-screen');
+        refs.compScoreEl.classList.remove('widest-screen');
+    }
 
 };
 
 resizeObserver.observe(refs.mainContainerEl)
-
-// //Определение широкого экрана, буль
-// const wideScreen   = (window.screen.availWidth / window.screen.availHeight > 0.7)
-
-
-// //Добавление и удаление классов на широкий экран
-// if (wideScreen) {
-//     refs.rockEl.classList.add('wide-screen');
-//     refs.paperEl.classList.add('wide-screen');
-//     refs.scissorsEl.classList.add('wide-screen');
-//     refs.playScoreEl.classList.add('wide-screen');
-//     refs.compScoreEl.classList.add('wide-screen');
-// } else {
-//     refs.rockEl.classList.remove('wide-screen');
-//     refs.paperEl.classList.remove('wide-screen');
-//     refs.scissorsEl.classList.remove('wide-screen');
-//     refs.playScoreEl.classList.remove('wide-screen');
-//     refs.compScoreEl.classList.remove('wide-screen');
-// }
-
-// //Добавление и удаление классов на самый широкий экран
-// if (window.screen.availWidth / window.screen.availHeight > 1.4) {
-//     refs.rockEl.classList.add('widest-screen');
-//     refs.paperEl.classList.add('widest-screen');
-//     refs.scissorsEl.classList.add('widest-screen');
-//     refs.playScoreEl.classList.add('widest-screen');
-//     refs.compScoreEl.classList.add('widest-screen');
-// } else {
-//     refs.rockEl.classList.remove('widest-screen');
-//     refs.paperEl.classList.remove('widest-screen');
-//     refs.scissorsEl.classList.remove('widest-screen');
-//     refs.playScoreEl.classList.remove('widest-screen');
-//     refs.compScoreEl.classList.remove('widest-screen');
-// }
-
 
 
 initialData();
@@ -174,20 +167,18 @@ function showResult(result) {
     console.log(result.message);
     switch (result.message) {
         case 'win':
-
             refs.resultContainerEl.style.background = 'url(./images/win.jpg) center center no-repeat';
             refs.resultContainerEl.style.backgroundSize = screenSize
-
             break;
+
         case 'loss':
             refs.resultContainerEl.style.background = 'url(./images/loss.png)  center center no-repeat ';
             refs.resultContainerEl.style.backgroundSize = screenSize;
-            // if (!wideScreen) { refs.resultContainerEl.style.backgroundSize = "cover" }
             break;
+
         case 'draw':
             refs.resultContainerEl.style.background = 'url(./images/draw.png)  center center no-repeat ';
             refs.resultContainerEl.style.backgroundSize = screenSize;
-            // if (!wideScreen) { refs.resultContainerEl.style.backgroundSize = "cover" }
             break;
     };
 
